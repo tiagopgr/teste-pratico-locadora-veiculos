@@ -1,11 +1,11 @@
 # Sistema Locadora
 
 ### Objetivo 
-- Desenvolver um sistema para gerenciar uma locadora de veículos. Deve ser possível
+- [x] Desenvolver um sistema para gerenciar uma locadora de veículos. Deve ser possível
 listar/criar/editar/remover usuários, assim como veículos. Deve ser possível criar, editar e remover
 reservas de veículos. Um veículo só pode estar reservado para um usuário por vez. Um usuário pode
 reservar diversos carros ao mesmo tempo.
-- [ ] Deseja-se uma visão (relatório/tabela) que exiba para um determinado veículo qual a sua
+- [x] Deseja-se uma visão (relatório/tabela) que exiba para um determinado veículo qual a sua
 reserva/disponibilidade para cada dia de determinado mês.
 
 ### Requisitos técnicos
