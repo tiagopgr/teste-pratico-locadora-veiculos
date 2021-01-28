@@ -32,7 +32,8 @@ class TabelaFipe extends Command
     /**
      * @var int[] Marcas permitidas
      */
-    protected $marcasPermitidas = [6, 7, 161, 13, 21, 23, 25, 26, 39, 44, 56];
+//    protected $marcasPermitidas = [6, 7, 161, 13, 21, 23, 25, 26, 39, 44, 56];
+    protected $marcasPermitidas = [21,23];
 
     /**
      * Create a new command instance.

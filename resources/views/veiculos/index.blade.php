@@ -41,6 +41,8 @@
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             <a class="dropdown-item"
+                                               href="{{ route("veiculos.disponibilidade",$row->id) }}">Ver Disponibilidade</a>
+                                            <a class="dropdown-item"
                                                href="{{ route("veiculos.show",$row->id) }}">Visualizar</a>
                                             <a class="dropdown-item"
                                                href="{{ route("veiculos.edit",$row->id) }}">Editar</a>

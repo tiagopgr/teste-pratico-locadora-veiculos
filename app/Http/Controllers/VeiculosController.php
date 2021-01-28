@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Acaronlex\LaravelCalendar\Calendar;
 use App\Models\Marca;
 use App\Models\Modelo;
+use App\Models\Reserva;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -125,10 +128,57 @@ class VeiculosController extends Controller
     {
         $veiculo = Modelo::findOrFail($id);
 
-        if($veiculo->destroy($id)){
+        if ($veiculo->destroy($id)) {
             return redirect()->route("veiculos.index")->with("success", "Veículo excluido com sucesso.");
         } else {
             return back()->with('err', "Erro ao excluir veículo.");
         }
     }
+
+    public function disponibilidade(Request $request, $id)
+    {
+        $meses = [
+            "" => "Selecione",
+            1 => "Janeiro",
+            2 => "Fevereiro",
+            3 => "Março",
+            4 => "Abril",
+            5 => "Maio",
+            6 => "Junho",
+            7 => "Julho",
+            8 => "Agosto",
+            9 => "Setembro",
+            10 => "Outubro",
+            11 => "Novembro",
+            12 => "Dezembro",
+        ];
+
+        $anos = ["" => "Selecione"];
+        for ($i = 2021; $i <= date("Y"); $i++) {
+            $anos[$i] = $i;
+        }
+
+        $mes = $request->get("mes") ? $request->get("mes") : date("M");
+        $ano = $request->get("ano") ? $request->get("ano") : date("Y");
+
+        $reserva = Reserva::where("modelo_id", '=', $id)->where('situacao', '=', '1')->get()->first();
+        $events = [];
+        if ($reserva) {
+            $dt_retirada = Carbon::createFromFormat("d/m/Y H:i:s", $reserva->data_retirada);
+            $events[] = Calendar::event('Reservado', true, $dt_retirada, $dt_retirada);
+
+        }
+
+        $calendar = new Calendar();
+        $calendar->addEvents($events);
+
+
+        $veiculo = Modelo::find($id);
+        \View::share("title", "Disponibilidade do veículo $veiculo->nome($veiculo->placa)");
+        return view("veiculos.disponibilidade", compact("veiculo", 'meses', 'anos', 'calendar'))
+            ->with("mes", $mes)
+            ->with("ano", $ano);
+    }
+
+
 }

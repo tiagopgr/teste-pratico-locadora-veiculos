@@ -40,7 +40,7 @@
                         <tr class="@if($row->data_entrega !== null) table-success @else table-info @endif">
                             <td scope="row">{{ $row->id }}</td>
                             <td>{{ $row->user->name }}</td>
-                            <td>{{ $row->modelo->nome }}</td>
+                            <td><a href="{{ route("veiculos.disponibilidade", $row->modelo->id) }}">{{ $row->modelo->nome }}</a></td>
                             <td>{{ $row->modelo->placa }}</td>
                             <td>{{ $row->data_retirada }}</td>
                             <td>{{ $row->data_entrega ?? "-" }}</td>

@@ -9,6 +9,7 @@ Route::get('/', function () {
 Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('veiculos', '\App\Http\Controllers\VeiculosController');
+    Route::get('veiculos/disponibilidade/{veiculo}/', [\App\Http\Controllers\VeiculosController::class, 'disponibilidade'])->name("veiculos.disponibilidade");
     Route::resource('usuarios', '\App\Http\Controllers\UsersController');
     Route::get("/reservas", [\App\Http\Controllers\ReservasController::class, 'index'])->name("reservas.index");
     Route::get("/reservas/alugar", [\App\Http\Controllers\ReservasController::class, 'getAlugarVeiculo'])->name("reservas.alugar");
