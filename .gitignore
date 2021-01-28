@@ -13,4 +13,5 @@ npm-debug.log
 yarn-error.log
 /database/*.sqlite
 .idea
-yarn.lock
+!/yarn.lock
+!/composer.lock
