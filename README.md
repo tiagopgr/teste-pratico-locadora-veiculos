@@ -1,62 +1,42 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Sistema Locadora
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+###Objetivo 
+Desenvolver um sistema para gerenciar uma locadora de veículos. Deve ser possível
+listar/criar/editar/remover usuários, assim como veículos. Deve ser possível criar, editar e remover
+reservas de veículos. Um veículo só pode estar reservado para um usuário por vez. Um usuário pode
+reservar diversos carros ao mesmo tempo.
+Deseja-se uma visão (relatório/tabela) que exiba para um determinado veículo qual a sua
+reserva/disponibilidade para cada dia de determinado mês.
 
-## About Laravel
+### Requisitos técnicos
+O sistema deve armazenar o nome e o CPF dos usuários, assim como a data e quem foram inseridos no
+banco de dados.
+O sistema deve armazenar o modelo, marca, ano e a placa do veículo.
+O sistema deve armazenar as reservas realizadas.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Todos os dados inseridos pelo operador do sistema devem ser validados.
+Criar um evento que será disparado quando um carro for reservado. Esse evento deverá escrever no
+arquivo de log do framework Laravel (utilizando a facade \Log), a id do usuário e a id do veículo
+reservado.
+Criar um Job e programá-lo para execução duas vezes por dia. O método handle do Job pode permanecer
+vazio.
+O repositório deve conter as migrações das tabelas do sistema.
+Deve ser observado o padrão MVC.
+Deve ser observado o devido tratamento de erros.
+Deve ser utilizado o Laravel Mix para compilação de dependências.
+Utilize o bootstrap (https://getbootstrap.com/) para construção do front-end.
+Utilizar a versão 8 do framework Laravel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Orientações
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+A interface do sistema deve ser a mais simples possível. Concentre-se nos requisitos técnicos e não na
+estética das páginas.
+É desejável (mas não obrigatório) que o sistema contenha funcionalidade para inserir/remover dados
+fictícios, para facilitação do teste.
+Utilizar o sistema de autenticação do próprio Laravel.
+Uso de componentes em Vue JS é desejável.
+O uso de bibliotecas terceiras é desejável, desde que respeitados os critérios já citados neste documento.
+É desejável que o código seja comentado quando o trecho de código não for óbvio.
+É desejável que o repositório contenha Docblocks em todos os métodos.
+O projeto deve ser entregue via link de repositório no github.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
