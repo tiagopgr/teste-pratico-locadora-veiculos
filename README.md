@@ -44,7 +44,7 @@ banco de dados.
 - [ ]Criar um evento que será disparado quando um carro for reservado. Esse evento deverá escrever no
 arquivo de log do framework Laravel (utilizando a facade \Log), a id do usuário e a id do veículo
 reservado.
-- [ ] Criar um Job e programá-lo para execução duas vezes por dia. O método handle do Job pode permanecer
+- [x] Criar um Job e programá-lo para execução duas vezes por dia. O método handle do Job pode permanecer
 vazio.
 - [x] O repositório deve conter as migrações das tabelas do sistema.
 - [x] Deve ser observado o padrão MVC.
