@@ -41,7 +41,7 @@ banco de dados.
 - [x] O sistema deve armazenar as reservas realizadas.
 
 - [x] Todos os dados inseridos pelo operador do sistema devem ser validados.
-- [ ]Criar um evento que será disparado quando um carro for reservado. Esse evento deverá escrever no
+- [x] Criar um evento que será disparado quando um carro for reservado. Esse evento deverá escrever no
 arquivo de log do framework Laravel (utilizando a facade \Log), a id do usuário e a id do veículo
 reservado.
 - [x] Criar um Job e programá-lo para execução duas vezes por dia. O método handle do Job pode permanecer
